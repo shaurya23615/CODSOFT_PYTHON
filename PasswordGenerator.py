@@ -3,14 +3,12 @@ from tkinter import messagebox
 import random
 import string
 
-# ---------------- MAIN WINDOW ---------------- #
 root = tk.Tk()
 root.title("🔐 Password Generator")
 
 root.geometry("760x620")
 root.minsize(760, 620)
 
-# ---------------- COLORS ---------------- #
 bg_color = "#0F172A"
 card_color = "#111827"
 
@@ -23,7 +21,6 @@ muted_text = "#94A3B8"
 
 root.config(bg=bg_color)
 
-# ---------------- TITLE ---------------- #
 title = tk.Label(
     root,
     text=" Strong Password Generator ",
@@ -33,7 +30,6 @@ title = tk.Label(
 )
 title.pack(pady=(30, 10))
 
-# ---------------- SUBTITLE ---------------- #
 subtitle = tk.Label(
     root,
     text="Generate secure and random passwords instantly 🛡️",
@@ -43,7 +39,6 @@ subtitle = tk.Label(
 )
 subtitle.pack(pady=5)
 
-# ---------------- LENGTH FRAME ---------------- #
 length_frame = tk.Frame(
     root,
     bg=bg_color
@@ -75,7 +70,6 @@ length_spinbox = tk.Spinbox(
 )
 length_spinbox.grid(row=0, column=1)
 
-# ---------------- PASSWORD FRAME ---------------- #
 password_frame = tk.Frame(
     root,
     bg=card_color,
@@ -102,7 +96,6 @@ password_label = tk.Label(
 )
 password_label.pack(pady=4)
 
-# ---------------- GENERATE FUNCTION ---------------- #
 def generate_password():
 
     length = int(length_spinbox.get())
@@ -122,7 +115,6 @@ def generate_password():
         text=password
     )
 
-# ---------------- COPY FUNCTION ---------------- #
 def copy_password():
 
     password = password_label.cget("text")
@@ -142,14 +134,12 @@ def copy_password():
         "Password copied to clipboard!"
     )
 
-# ---------------- BUTTON FRAME ---------------- #
 button_frame = tk.Frame(
     root,
     bg=bg_color
 )
 button_frame.pack(pady=25)
 
-# ---------------- GENERATE BUTTON ---------------- #
 generate_btn = tk.Button(
     button_frame,
     text="⚡ Generate Password",
@@ -166,7 +156,6 @@ generate_btn = tk.Button(
 )
 generate_btn.grid(row=0, column=0, padx=12)
 
-# ---------------- COPY BUTTON ---------------- #
 copy_btn = tk.Button(
     button_frame,
     text="📋 Copy Password",
@@ -183,7 +172,6 @@ copy_btn = tk.Button(
 )
 copy_btn.grid(row=0, column=1, padx=12)
 
-# ---------------- RESET FUNCTION ---------------- #
 def reset_all():
 
     password_label.config(
@@ -193,7 +181,6 @@ def reset_all():
     length_spinbox.delete(0, "end")
     length_spinbox.insert(0, "4")
 
-# ---------------- RESET BUTTON ---------------- #
 reset_btn = tk.Button(
     root,
     text="🔄 Reset",
@@ -211,7 +198,6 @@ reset_btn = tk.Button(
 )
 reset_btn.pack(pady=20)
 
-# ---------------- EXIT BUTTON ---------------- #
 exit_btn = tk.Button(
     root,
     text="❌ Exit",
@@ -228,9 +214,7 @@ exit_btn = tk.Button(
 )
 exit_btn.pack(pady=10)
 
-# ---------------- DEFAULT VALUE ---------------- #
 length_spinbox.delete(0, "end")
 length_spinbox.insert(0, "4")
 
-# ---------------- RUN APP ---------------- #
 root.mainloop()

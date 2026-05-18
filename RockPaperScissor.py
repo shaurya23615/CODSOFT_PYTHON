@@ -1,7 +1,6 @@
 import tkinter as tk
 import random
 
-# ---------------- MAIN WINDOW ---------------- #
 root = tk.Tk()
 root.title("🎮 Rock Paper Scissors")
 
@@ -11,7 +10,6 @@ root.minsize(620, 760)
 root.config(bg="#0f172a")
 root.resizable(True, True)
 
-# ---------------- VARIABLES ---------------- #
 user_score = 0
 computer_score = 0
 round_number = 1
@@ -22,7 +20,6 @@ choices = {
     "Scissors": "✂️"
 }
 
-# ---------------- TITLE ---------------- #
 title = tk.Label(
     root,
     text="🔥 Rock Paper Scissors 🔥",
@@ -32,7 +29,6 @@ title = tk.Label(
 )
 title.pack(pady=12)
 
-# ---------------- SUBTITLE ---------------- #
 subtitle = tk.Label(
     root,
     text="Choose your move and defeat the computer!",
@@ -42,7 +38,6 @@ subtitle = tk.Label(
 )
 subtitle.pack(pady=5)
 
-# ---------------- PLAYER CHOICE ---------------- #
 user_choice_label = tk.Label(
     root,
     text="👦 Your Choice:",
@@ -54,7 +49,6 @@ user_choice_label = tk.Label(
 )
 user_choice_label.pack(pady=10)
 
-# ---------------- COMPUTER CHOICE ---------------- #
 computer_choice_label = tk.Label(
     root,
     text="💻 Computer Choice:",
@@ -66,7 +60,6 @@ computer_choice_label = tk.Label(
 )
 computer_choice_label.pack(pady=10)
 
-# ---------------- RESULT LABEL ---------------- #
 result_label = tk.Label(
     root,
     text="✨ Result Will Appear Here ✨",
@@ -76,7 +69,6 @@ result_label = tk.Label(
 )
 result_label.pack(pady=18)
 
-# ---------------- SCORE BOARD ---------------- #
 score_label = tk.Label(
     root,
     text="👦 You: 0    🤖 Computer: 0",
@@ -88,7 +80,6 @@ score_label = tk.Label(
 )
 score_label.pack(pady=10)
 
-# ---------------- ROUND LABEL ---------------- #
 round_label = tk.Label(
     root,
     text="🎯 Round: 1",
@@ -98,13 +89,11 @@ round_label = tk.Label(
 )
 round_label.pack(pady=10)
 
-# ---------------- GAME FUNCTION ---------------- #
 def play(user_choice):
     global user_score, computer_score, round_number
 
     computer_choice = random.choice(list(choices.keys()))
 
-    # Show choices
     user_choice_label.config(
         text=f"👦 Your Choice: {choices[user_choice]} {user_choice}"
     )
@@ -113,7 +102,6 @@ def play(user_choice):
         text=f"💻 Computer Choice: {choices[computer_choice]} {computer_choice}"
     )
 
-    # Winner Logic
     if user_choice == computer_choice:
         result = "🤝 It's a Tie!"
         result_color = "#facc15"
@@ -132,16 +120,13 @@ def play(user_choice):
         result_color = "#ef4444"
         computer_score += 1
 
-    # Show Result
     result_label.config(
         text=result,
         fg=result_color
     )
 
-    # Increase Round
     round_number += 1
 
-    # After 5 Rounds
     if round_number > 5:
 
         if user_score > computer_score:
@@ -162,26 +147,21 @@ def play(user_choice):
                 fg="#facc15"
             )
 
-        # Reset Everything
         user_score = 0
         computer_score = 0
         round_number = 1
 
-    # Update Score
     score_label.config(
         text=f"👦 You: {user_score}    🤖 Computer: {computer_score}"
     )
 
-    # Update Round
     round_label.config(
         text=f"🎯 Round: {round_number}"
     )
 
-# ---------------- BUTTON FRAME ---------------- #
 button_frame = tk.Frame(root, bg="#0f172a")
 button_frame.pack(pady=25)
 
-# ---------------- ROCK BUTTON ---------------- #
 rock_btn = tk.Button(
     button_frame,
     text="🪨 ROCK",
@@ -197,7 +177,6 @@ rock_btn = tk.Button(
 )
 rock_btn.grid(row=0, column=0, padx=10)
 
-# ---------------- PAPER BUTTON ---------------- #
 paper_btn = tk.Button(
     button_frame,
     text="📄 PAPER",
@@ -213,7 +192,6 @@ paper_btn = tk.Button(
 )
 paper_btn.grid(row=0, column=1, padx=10)
 
-# ---------------- SCISSORS BUTTON ---------------- #
 scissors_btn = tk.Button(
     button_frame,
     text="✂️ SCISSORS",
@@ -230,7 +208,6 @@ scissors_btn = tk.Button(
 )
 scissors_btn.grid(row=0, column=2, padx=10)
 
-# ---------------- RESET FUNCTION ---------------- #
 def reset_game():
     global user_score, computer_score, round_number
 
@@ -259,7 +236,6 @@ def reset_game():
         text="🎯 Round: 1"
     )
 
-# ---------------- RESET BUTTON ---------------- #
 reset_btn = tk.Button(
     root,
     text="🔄 Reset Game",
@@ -275,7 +251,6 @@ reset_btn = tk.Button(
 )
 reset_btn.pack(pady=15)
 
-# ---------------- EXIT BUTTON ---------------- #
 exit_btn = tk.Button(
     root,
     text="❌ Exit",
@@ -291,7 +266,6 @@ exit_btn = tk.Button(
 )
 exit_btn.pack(pady=10)
 
-# ---------------- FOOTER ---------------- #
 footer = tk.Label(
     root,
     text="Made with ❤️ using Python Tkinter",
@@ -301,5 +275,4 @@ footer = tk.Label(
 )
 footer.pack(side="bottom", pady=15)
 
-# ---------------- RUN APP ---------------- #
 root.mainloop()

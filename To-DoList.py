@@ -1,13 +1,11 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# ---------------- WINDOW ---------------- #
 root = tk.Tk()
 root.title("🌟 Daily Planner")
 root.geometry("900x650")
 root.config(bg="#111827")
 
-# ---------------- COLORS ---------------- #
 bg_color = "#111827"
 card_color = "#1F2937"
 
@@ -21,7 +19,6 @@ blue = "#3B82F6"
 text_dark = "#F8FAFC"
 text_light = "#CBD5E1"
 
-# ---------------- TITLE ---------------- #
 title = tk.Label(
     root,
     text="🌈 My Daily To-Do Planner",
@@ -31,7 +28,6 @@ title = tk.Label(
 )
 title.pack(pady=(20, 5))
 
-# ---------------- SUBTITLE ---------------- #
 subtitle = tk.Label(
     root,
     text="Plan your day beautifully ✨",
@@ -41,7 +37,6 @@ subtitle = tk.Label(
 )
 subtitle.pack()
 
-# ---------------- MAIN CARD ---------------- #
 main_card = tk.Frame(
     root,
     bg=card_color,
@@ -54,7 +49,6 @@ main_card.pack(
     expand=True
 )
 
-# ---------------- INPUT SECTION ---------------- #
 input_frame = tk.Frame(
     main_card,
     bg=card_color
@@ -73,7 +67,6 @@ task_entry = tk.Entry(
 )
 task_entry.grid(row=0, column=0, padx=10)
 
-# ---------------- FUNCTIONS ---------------- #
 def add_task():
 
     task = task_entry.get()
@@ -89,7 +82,6 @@ def add_task():
 
     task_entry.delete(0, tk.END)
 
-# ---------------- UPDATE FUNCTION ---------------- #
 def update_task():
 
     try:
@@ -119,7 +111,6 @@ def update_task():
             "Select a task to update!"
         )
 
-# ---------------- DELETE FUNCTION ---------------- #
 def delete_task():
 
     try:
@@ -132,7 +123,6 @@ def delete_task():
             "Select a task first!"
         )
 
-# ---------------- COMPLETE FUNCTION ---------------- #
 def complete_task():
 
     try:
@@ -153,19 +143,16 @@ def complete_task():
             "Select a task!"
         )
 
-# ---------------- CLEAR FUNCTION ---------------- #
 def clear_tasks():
 
     task_listbox.delete(0, tk.END)
 
-# ---------------- BUTTON SECTION ---------------- #
 button_frame = tk.Frame(
     main_card,
     bg=card_color
 )
 button_frame.pack(pady=10)
 
-# ---------------- ADD BUTTON ---------------- #
 add_btn = tk.Button(
     button_frame,
     text="➕ Add Task",
@@ -181,7 +168,6 @@ add_btn = tk.Button(
 )
 add_btn.grid(row=0, column=0, padx=8)
 
-# ---------------- UPDATE BUTTON ---------------- #
 update_btn = tk.Button(
     button_frame,
     text="✏️ Update",
@@ -197,7 +183,6 @@ update_btn = tk.Button(
 )
 update_btn.grid(row=0, column=1, padx=8)
 
-# ---------------- COMPLETE BUTTON ---------------- #
 complete_btn = tk.Button(
     button_frame,
     text="✅ Complete",
@@ -213,7 +198,6 @@ complete_btn = tk.Button(
 )
 complete_btn.grid(row=0, column=2, padx=8)
 
-# ---------------- DELETE BUTTON ---------------- #
 delete_btn = tk.Button(
     button_frame,
     text="🗑 Delete",
@@ -229,7 +213,6 @@ delete_btn = tk.Button(
 )
 delete_btn.grid(row=0, column=3, padx=8)
 
-# ---------------- TASK FRAME ---------------- #
 task_frame = tk.Frame(
     main_card,
     bg="#111827",
@@ -238,11 +221,9 @@ task_frame = tk.Frame(
 )
 task_frame.pack(pady=25)
 
-# ---------------- SCROLLBAR ---------------- #
 scrollbar = tk.Scrollbar(task_frame)
 scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-# ---------------- TASK LISTBOX ---------------- #
 task_listbox = tk.Listbox(
     task_frame,
     width=55,
@@ -259,14 +240,12 @@ task_listbox.pack(padx=10, pady=10)
 
 scrollbar.config(command=task_listbox.yview)
 
-# ---------------- BOTTOM BUTTONS ---------------- #
 bottom_frame = tk.Frame(
     main_card,
     bg=card_color
 )
 bottom_frame.pack(pady=10)
 
-# ---------------- CLEAR BUTTON ---------------- #
 clear_btn = tk.Button(
     bottom_frame,
     text="🧹 Clear All",
@@ -282,7 +261,6 @@ clear_btn = tk.Button(
 )
 clear_btn.grid(row=0, column=0, padx=12)
 
-# ---------------- EXIT BUTTON ---------------- #
 exit_btn = tk.Button(
     bottom_frame,
     text="❌ Exit",
@@ -298,7 +276,6 @@ exit_btn = tk.Button(
 )
 exit_btn.grid(row=0, column=1, padx=12)
 
-# ---------------- FOOTER ---------------- #
 footer = tk.Label(
     root,
     text="Made with ❤️ using Python Tkinter",
@@ -308,5 +285,4 @@ footer = tk.Label(
 )
 footer.pack(pady=10)
 
-# ---------------- RUN APP ---------------- #
 root.mainloop()
